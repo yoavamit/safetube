@@ -31,7 +31,7 @@ router.get('/push', function(req, res, next) {
 
 router.get('/pop', function(req, res, next) {
   var id = queue.pop();
-  if (id) {
+  if (id !== null) {
     var filepath = path.resolve([__dirname, '..', id.linkId].join("/") + ".mp4");
     var stat = fs.statSync(filepath);
     res.set({
